@@ -49,4 +49,10 @@ class OwnersController < ApplicationController
 
     redirect "/owners/#{@owner.id}"
   end
+
+  delete "/owners/:id" do
+    Owner.delete(params[:id])
+
+    redirect "/owners"
+  end
 end
