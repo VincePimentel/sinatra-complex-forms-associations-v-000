@@ -30,7 +30,7 @@ class PetsController < ApplicationController
   patch '/pets/:id' do
     @pet = Pet.find(params[:id])
     @pet.update(params[:pet])
-    
+
     if !params[:owner][:name].empty?
       owner = Owner.create(name: params[:owner][:name])
       owner.pets << @pet
@@ -41,6 +41,7 @@ class PetsController < ApplicationController
 
   get '/pets/:id/edit' do
     @pet = Pet.find(params[:id])
+
     erb :'/pets/edit'
   end
 end
