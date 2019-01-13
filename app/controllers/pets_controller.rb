@@ -2,14 +2,14 @@ class PetsController < ApplicationController
 
   get '/pets' do
     @pets = Pet.all
-    erb :'/pets/index' 
+    erb :'/pets/index'
   end
 
-  get '/pets/new' do 
+  get '/pets/new' do
     erb :'/pets/new'
   end
 
-  post '/pets' do 
+  post '/pets' do
     @pet = Pet.create(params[:pet])
 
     if !params["owner"]["name"].empty?
@@ -24,7 +24,7 @@ class PetsController < ApplicationController
     erb :'/pets/show'
   end
 
-  patch '/pets/:id' do 
+  patch '/pets/:id' do
     @pet = Pet.find(params[:id])
 
     @pet.update(params["pet"])
